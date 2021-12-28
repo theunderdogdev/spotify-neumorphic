@@ -10,12 +10,12 @@
   --sptgreen: #1db854;
   --white: #f5f5f5;
   --black: #21272c;
-  --iner-shadow: inset -5px -5px 10px rgba(57, 62, 68, 0.75),
+  --inner-shadow: inset -5px -5px 10px rgba(57, 62, 68, 0.75),
     inset 5px 5px 10px rgb(16, 19, 22);
   --sunken: -8px -8px 30px rgba(57, 62, 68, 0.75), 8px 8px 30px rgb(16, 19, 22),
     inset -8px -8px 20px rgba(57, 62, 68, 0.75),
     inset 8px 8px 20px rgb(16, 19, 22);
-  --relief: -5px -5px 35px rgba(57, 62, 68, 0.75), 5px 5px 60px rgb(16, 19, 22);
+  --relief: -5px -5px 12px rgba(57, 62, 68, 0.75), 5px 5px 15px rgb(16, 19, 22);
 }
 * {
   margin: 0px;
@@ -24,11 +24,16 @@
   font-family: "Nunito", sans-serif;
 }
 body {
-  background-color: var(--bg);
+  background-image: linear-gradient(
+    153deg,
+    rgba(48, 54, 59, 1) 0%,
+    rgba(26, 29, 32, 1) 100%
+  );
 }
 ul {
   list-style-type: none;
 }
+/* Navbar */
 .nav-items {
   display: flex;
   align-items: center;
@@ -52,12 +57,84 @@ ul {
   transition: color 0.25s ease-in-out;
 }
 .bottom-nav {
-  box-shadow: var(--iner-shadow);
+  box-shadow: var(--inner-shadow);
   background-color: var(--black);
   width: 100%;
   height: 75px;
-
   position: fixed;
   bottom: 0px;
-  border-radius: 20px 20px 0px 0px;
+  z-index: 5;
 }
+
+/* Navbar */
+.now-playing {
+  width: 100%;
+  height: 75px;
+  box-shadow: var(--inner-shadow);
+  z-index: 5;
+  position: absolute;
+  bottom: 75px;
+  display: flex;
+  align-items: center;
+  background-color: var(--black);
+}
+.now-playing .album {
+  box-shadow: -2px -3px 12px #393e44bf, 5px 5px 15px #101316,
+    inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.cover-art {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* Home View */
+h2.greet {
+  position: absolute;
+  top: 35px;
+  left: 30px;
+}
+.view {
+  padding: 10px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  color: var(--white);
+}
+.home {
+  overflow-y: scroll;
+}
+.tiles {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.recents {
+  width: 45%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.recent {
+  box-shadow: var(--relief);
+  width: 100%;
+  height: 75px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.rec-img {
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Home View */
