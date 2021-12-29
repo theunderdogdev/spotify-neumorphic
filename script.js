@@ -4,4 +4,7 @@ $(document).ready(function () {
     $(".nav-item.active").removeClass("active");
     $(this).addClass("active");
   });
+  $('.now-playing').click(function(){
+    $(this).toggleClass('fscreen');
+  })
 });

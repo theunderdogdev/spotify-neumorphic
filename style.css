@@ -16,6 +16,7 @@
     inset -8px -8px 20px rgba(57, 62, 68, 0.75),
     inset 8px 8px 20px rgb(16, 19, 22);
   --relief: -5px -5px 12px rgba(57, 62, 68, 0.75), 5px 5px 15px rgb(16, 19, 22);
+  --gray: rgb(85,86,88);
 }
 * {
   margin: 0px;
@@ -29,6 +30,10 @@ body {
     rgba(48, 54, 59, 1) 0%,
     rgba(26, 29, 32, 1) 100%
   );
+}
+button{
+  outline: none;
+  border: none;
 }
 ul {
   list-style-type: none;
@@ -57,7 +62,6 @@ ul {
   transition: color 0.25s ease-in-out;
 }
 .bottom-nav {
-  box-shadow: var(--inner-shadow);
   background-color: var(--black);
   width: 100%;
   height: 75px;
@@ -70,30 +74,157 @@ ul {
 .now-playing {
   width: 100%;
   height: 75px;
-  box-shadow: var(--inner-shadow);
+  border-top: 2px solid #1b2022;
+  border-bottom: 2px solid #1b2022;
   z-index: 5;
   position: absolute;
   bottom: 75px;
-  display: flex;
-  align-items: center;
   background-color: var(--black);
+  background-image: none;
+  transition: all 0.5s ease-in-out;
 }
-.now-playing .album {
-  box-shadow: -2px -3px 12px #393e44bf, 5px 5px 15px #101316,
-    inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
-  width: 50px;
-  height: 50px;
+.now-playing .track-length{
+  width: 100%;
   position: absolute;
-  left: 20px;
-  border-radius: 10px;
+  height: 2px;
+  background-color: #14171a;
+  top: 0px;
   overflow: hidden;
 }
-.cover-art {
-  width: 95%;
-  height: 95%;
-  object-fit: cover;
-  border-radius: 10px;
+.now-playing .track-length .tracker{
+  width: 75%;
+  height: 100%;
+  background-color: var(--sptgreen);
 }
+.now-playing .timing{
+  color: var(--white);
+  display: none;
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  top: 60%;
+  font-size: 13px;
+}
+
+.now-playing .album {
+  box-shadow: -10px -10px 35px #393e44bf, 10px 10px 25px #101316, inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
+ width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.cover-art {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: all 0.5s ease-in-out;
+}
+
+.now-playing .controls{
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 175px;
+  gap: 20px;
+  bottom: 0px;
+  transition: all 0.5s ease-in-out;
+
+}
+.now-playing .track-info{
+  color: var(--white);
+  height: 100%;
+  position: absolute;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.controller{
+  box-shadow:  
+  5px 5px 10px rgb(16, 19, 22), inset -5px -5px 10px rgba(96, 97, 97, 0.75), inset 5px 5px 10px rgba(96, 97, 97, 0.75);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--sptgreen);
+  /* position: absolute; */
+}
+.subcontroller{
+  box-shadow: 
+  5px 5px 10px rgb(16, 19, 22), inset -5px -5px 10px rgba(96, 97, 97, 0.75), inset 5px 5px 10px rgba(96, 97, 97, 0.75);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--sptgreen);
+  transition: all 0.25s ease-in-out;
+}
+.now-playing .controls .subcontroller{
+  visibility: hidden;
+}
+.now-playing.fscreen{
+  height: 100vh;
+  z-index: 6;
+  bottom: 0px;
+}
+.now-playing.fscreen .track-length{
+  width: 90%;
+  top: 65%;
+  height: 8px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow:  inset 0px -3px 7px rgb(255, 255, 255, 0.18);
+}
+.now-playing.fscreen .album{
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 75px;
+}
+.now-playing.fscreen .album .cover-art{
+  width: 140px;
+  height: 140px;
+}
+.now-playing.fscreen .controls .subcontroller{
+  visibility: visible;
+}
+.now-playing.fscreen .controls{
+  width: 100%;
+  height: 175px;
+  right: 0px;
+  bottom: 75px;
+  transition: all 0.5s ease-in-out;
+}
+.now-playing.fscreen .track-info{
+  width: 100%;
+  height: 75px;
+  left: 0px;
+  top: 40%;
+  transform: translateY(-50%);
+}
+.now-playing.fscreen .timing{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Home View */
 h2.greet {
   position: absolute;
