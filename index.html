@@ -38,6 +38,16 @@
         </ul>
     </nav>
     <div class="now-playing">
+        <div class="view-controls">
+            <button class="viewcontrol" id="collapse-fscreen">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg></button>
+            <button class="viewcontrol"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+              </svg></button>
+
+        </div>
         <div class="track-length"><div class="tracker"></div></div>
         <div class="album">
             <img class="cover-art" src="./sample.jfif" alt="">
@@ -50,27 +60,23 @@
             <span id="track-time">3:45</span>
         </div>
         <div class="controls">
-            <button class="subcontroller">Pl</button>
-            <button class="controller">Pl</button>
-            <button class="subcontroller">Pl</button>
+            <button class="subcontroller">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+              </svg></button>
+            <button class="controller">
+                <div class="play" ></div>
+               </button>
+             
+            <button class="subcontroller">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg></button>
         </div>
        
     </div>
     <div class="home view">
         <h2 class="greet">Good Morning!</h2>
-        <div class="tiles">
-            <ul class="recents">
-                <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>
-                <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>
-                <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>
-            </ul>
-            <ul class="recents">
-                <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>
-                <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>
-                <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>
-            </ul>
-
-        </div>
         <div class="tiles">
             <ul class="recents">
                 <li class="recent"><img class="rec-img" src="./sample.jfif" alt="" srcset=""></li>

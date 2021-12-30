@@ -4,7 +4,13 @@ $(document).ready(function () {
     $(".nav-item.active").removeClass("active");
     $(this).addClass("active");
   });
-  $('.now-playing').click(function(){
-    $(this).toggleClass('fscreen');
+  $('.track-info').click(function(){
+    $('.now-playing').addClass('fscreen');
+  })
+  $('#collapse-fscreen').click(function(){
+    $('.now-playing').removeClass('fscreen');
+  })
+  $('.controller .play').click(function(){
+    $(this).toggleClass('playing');
   })
 });
