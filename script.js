@@ -6,9 +6,9 @@ $(document).ready(function () {
     "Alan_Walker_Ava_Max_Alone_Pt_II",
     "Alan_Walker_Darkside",
   ];
-  const guardFlow = ()=>{
-    iter < songs.length - 1 ? $('#skipfwd').prop('disabled', false): $('#skipfwd').prop('disabled', true);
-    iter > 0 ? $('#skipbck').prop('disabled', false): $('#skipbck').prop('disabled', true) 
+  const guardFlow = () => {
+    iter < songs.length - 1 ? $('#skipfwd').prop('disabled', false) : $('#skipfwd').prop('disabled', true);
+    iter > 0 ? $('#skipbck').prop('disabled', false) : $('#skipbck').prop('disabled', true)
   }
   const timeFuncs = () => {
     let playtime;
@@ -50,6 +50,9 @@ $(document).ready(function () {
   $(".nav-item").click(function () {
     $(".nav-item.active").removeClass("active");
     $(this).addClass("active");
+    $('.viewing').fadeOut(500).removeClass('viewing');
+    console.log($(this).attr('data-view'));
+    $(`.${$(this).attr('data-view')}`).fadeIn(500).addClass('viewing');
   });
 
   $(".now-playing").click(function () {
@@ -61,7 +64,7 @@ $(document).ready(function () {
     $(".now-playing").removeClass("fscreen");
   });
 
-  $(".controller").click(function (e) {
+  $("#playbtn.controller").click(function (e) {
     e.stopPropagation();
     if ($(".play.paused").length == 0) {
       player.pause();
@@ -113,4 +116,29 @@ $(document).ready(function () {
     e.stopPropagation();
     $(this).toggleClass("pressed");
   });
+  let prevpos;
+  // Library View Controls
+  $('.data-assets .controller').click(function () {
+    prevpos = $('.library').scrollTop();
+    $('.playlists').css({
+      'transform': 'translateX(-100vw)'
+    });
+    $('.playlist-content').css({
+      'transform': 'translateX(0px)'
+    })
+    $('.subcontroller.back-btn').addClass('isactive');
+  })
+  $('.subcontroller.back-btn').click(function () {
+    $('.library').animate({
+      scrollTop: prevpos
+    }, 300);
+    $('.subcontroller.back-btn').removeClass('isactive');
+    $('.playlists').css({
+      'transform': 'translateX(0px)'
+    });
+    $('.playlist-content').css({
+      'transform': 'translateX(100vw)'
+    });
+  })
+
 });

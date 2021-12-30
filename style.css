@@ -32,7 +32,7 @@
 body {
   background-color: var(--bg);
   background-image: var(--lin-img);
-
+  max-height: 100vh;
 }
 *::-webkit-scrollbar{
   display: none;
@@ -201,6 +201,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--white);
   /* position: absolute; */
 }
 .subcontroller2 {
@@ -228,6 +229,8 @@ ul {
   justify-content: center;
   position: absolute;
   transition: all 0.75s ease-in-out;
+  color: var(--white);
+
   /* transform: translateX(-150%); */
 }
 
@@ -417,7 +420,7 @@ h2.greet {
 /* Library view */
 .library{
   overflow-y: scroll;
-
+  display: none;
 }
 .wrap-cover{
   position: absolute;
@@ -436,8 +439,10 @@ h2.greet {
   height: 95%;
 }
 .playlists{
-  margin-top: 100px;
-  margin-bottom: 180px;
+  position: absolute;
+  top: 125px;
+  left: 0px;
+  padding-bottom: 180px;
   width: 100%;
   height: auto;
   display: flex;
@@ -446,6 +451,8 @@ h2.greet {
   align-items: center;
   gap: 55px;
   padding: 10px 20px;
+  padding-bottom: 180px;
+  transition: all 0.5s ease-in-out;
 }
  .playlist{
   width:  100%;
@@ -503,5 +510,22 @@ h2.greet {
   top: 50% !important;
   transform: translateY(-50%) !important;
   display: flex !important;
+}
+.playlist-content{
+  width: 100%;
+  position: absolute;
+  top: 15px;
+    transform: translateX(100vw);
+  transition: all 0.5s ease-in-out;
+}
+.subcontroller.back-btn{
+  transform: translateY(-100px);
+  transition: transform 0.5s .75s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subcontroller.back-btn.isactive{
+  transform: translateY(0px);
 }
 /* Library view */
