@@ -40,40 +40,71 @@
     <div class="now-playing">
         <div class="view-controls">
             <button class="viewcontrol" id="collapse-fscreen">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-              </svg></button>
-            <button class="viewcontrol"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
-                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-              </svg></button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-chevron-down"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                </svg></button>
+            <button class="viewcontrol"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                    class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                </svg></button>
 
         </div>
-        <div class="track-length"><div class="tracker"></div></div>
+
+        <div class="track-length">
+
+            <div class="tracker"></div>
+        </div>
         <div class="album">
             <img class="cover-art" src="./sample.jfif" alt="">
         </div>
         <div class="track-info">
-            Lorem ipsum dolor
+
+            <div class="title">Tommorow's Finest</div>
+            <div class="artist">Ryan Oaks</div>
+
         </div>
         <div class="timing">
             <span id="playtime">1:00</span>
             <span id="track-time">3:45</span>
         </div>
         <div class="controls">
-            <button class="subcontroller">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-              </svg></button>
+            <button class="subcontroller2" id="like">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#f5f5f5" class="bi bi-heart-fill"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                </svg></button>
+            <button class="subcontroller" id="skipbck">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                    class="bi bi-skip-start-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0V4z" />
+                </svg>
+            </button>
+
             <button class="controller">
-                <div class="play" ></div>
-               </button>
-             
-            <button class="subcontroller">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-              </svg></button>
+                <div class="play paused"></div>
+            </button>
+            <button class="subcontroller" id="skipfwd">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                    class="bi bi-skip-end-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0V4z" />
+                </svg>
+            </button>
+
+            <button class="subcontroller2" id="report">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#f5f5f5" class="bi bi-slash-circle"
+                    viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708z" />
+                </svg>
+            </button>
         </div>
-       
+
     </div>
     <div class="home view">
         <h2 class="greet">Good Morning!</h2>

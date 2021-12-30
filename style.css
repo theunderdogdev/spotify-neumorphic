@@ -20,9 +20,7 @@
     inset 8px 8px 20px rgb(16, 19, 22);
   --relief: -5px -5px 12px rgba(57, 62, 68, 0.75), 5px 5px 15px rgb(16, 19, 22);
   --gray: rgb(85, 86, 88);
-  --lin-img: linear-gradient(180deg,
-  #53585c85 20%,
-  #1a1d20 75%);
+  --lin-img: linear-gradient(180deg, #53585c85 20%, #1a1d20 75%);
 }
 
 * {
@@ -31,13 +29,14 @@
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
 }
-body{
+body {
   background-color: var(--bg);
 }
 
 button {
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 ul {
@@ -91,7 +90,7 @@ ul {
   bottom: 75px;
   background-color: var(--black);
   background-image: none;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.75s ease-in-out;
 }
 
 .now-playing .track-length {
@@ -122,7 +121,8 @@ ul {
 }
 
 .now-playing .album {
-  box-shadow: -10px -10px 35px #393e44bf, 10px 10px 25px #101316, inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
+  box-shadow: -10px -10px 35px #393e44bf, 10px 10px 25px #101316,
+    inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
   width: 60px;
   height: 60px;
   position: absolute;
@@ -135,7 +135,6 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .cover-art {
@@ -153,27 +152,43 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 175px;
+  width: 90px;
   gap: 20px;
   bottom: 0px;
   transition: all 0.5s ease-in-out;
-
 }
 
 .now-playing .track-info {
   color: var(--white);
   height: 100%;
   position: absolute;
-  left: 80px;
+  left: 95px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: 10px;
+  font-size: 13px;
   /* transition: all 0.5s ease-in-out; */
 }
+.track-info .title {
+  font-weight: bolder;
+}
+.track-info .artist {
+  font-weight: lighter;
+}
 
+.now-playing.fscreen .track-info .title {
+  font-weight: bolder;
+  font-size: 20px;
+}
+.now-playing.fscreen .track-info .artist {
+  font-size: 13px;
+  font-weight: lighter;
+}
 .controller {
-  box-shadow: -5px -5px 10px #7a7d8159,
-    5px 5px 10px #101316, inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
+  box-shadow: -2px -2px 10px #7a7d8159, 5px 5px 10px #101316,
+    inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -184,31 +199,46 @@ ul {
   justify-content: center;
   /* position: absolute; */
 }
-
+.subcontroller2 {
+  box-shadow: -2px -2px 4px #7a7d8159, 5px 5px 10px #101316,
+    inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  border: 2px solid var(--dark);
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transition: all 0.25s ease-in;
+}
 .subcontroller {
-  box-shadow: -5px -5px 10px #7a7d8159,
-    5px 5px 10px #101316, inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
+  box-shadow: -2px -2px 5px #7a7d8159, 5px 5px 10px #101316,
+    inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--sptgreen);
-  border: 2px solid var(--gbd);
-  display: flex;
+  background-color: var(--bg);
+  border: 2px solid var(--dark);
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease-in-out;
+  position: absolute;
+  transition: all 0.75s ease-in-out;
+  /* transform: translateX(-150%); */
 }
 
-.now-playing .controls .subcontroller {
-  visibility: hidden;
+.now-playing .controls .subcontroller,
+.now-playing .controls .subcontroller2 {
+  display: none;
 }
-
+button:disabled svg {
+  fill: rgb(96 96 96);
+}
 .now-playing.fscreen {
   height: 100vh;
   z-index: 6;
   bottom: 0px;
   background-image: var(--lin-img);
- 
 }
 
 .now-playing .view-controls {
@@ -223,12 +253,12 @@ ul {
 
 .now-playing.fscreen .view-controls {
   display: flex;
-
 }
 
 .view-controls .viewcontrol {
   margin: 0px 20px;
-  box-shadow: -5px -5px 10px #7a7d81bf, 5px 5px 10px #101316, inset -5px -5px 10px #393e44bf;
+  box-shadow: -5px -5px 10px #7a7d81bf, 5px 5px 10px #101316,
+    inset -5px -5px 10px #393e44bf;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -251,6 +281,8 @@ ul {
 }
 
 .now-playing.fscreen .album {
+  box-shadow: -5px -5px 35px #d1d4d747, 10px 15px 25px #101316,
+    inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
   width: 220px;
   height: 220px;
   left: 50%;
@@ -263,10 +295,22 @@ ul {
   height: 210px;
 }
 
-.now-playing.fscreen .controls .subcontroller {
-  visibility: visible;
+.now-playing.fscreen .controls .subcontroller,
+.now-playing.fscreen .controls .subcontroller2 {
+  display: flex;
 }
-
+#report {
+  right: 50px;
+}
+#like {
+  left: 50px;
+}
+#skipfwd {
+  right: 115px;
+}
+#skipbck {
+  left: 115px;
+}
 .now-playing.fscreen .controls {
   width: 100%;
   height: 175px;
@@ -288,22 +332,24 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
-
+.subcontroller2.pressed svg {
+  fill: var(--sptgreen);
+}
 .play {
   transition: all 0.2s;
   opacity: 0.75;
   display: inline-block;
-  width: 4px;
-  height: 1em;
-  border-right: calc(0.5em - 2px) solid white;
-  border-left: calc(0.5em - 2px) solid white;
+  width: 10px;
+  height: 1.25em;
+  border-right: calc(0.45em - 2px) solid white;
+  border-left: calc(0.45em - 2px) solid white;
   border-top: 0;
   border-bottom: 0;
   background-color: transparent;
   cursor: pointer;
 }
 
-.play.playing {
+.play.paused {
   width: 0;
   height: 0;
   border-right: 0;
@@ -326,7 +372,6 @@ h2.greet {
   position: relative;
   color: var(--white);
   background-image: var(--lin-img);
-
 }
 
 .home {
