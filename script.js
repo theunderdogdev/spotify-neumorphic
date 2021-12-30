@@ -6,6 +6,10 @@ $(document).ready(function () {
     "Alan_Walker_Ava_Max_Alone_Pt_II",
     "Alan_Walker_Darkside",
   ];
+  const guardFlow = ()=>{
+    iter < songs.length - 1 ? $('#skipfwd').prop('disabled', false): $('#skipfwd').prop('disabled', true);
+    iter > 0 ? $('#skipbck').prop('disabled', false): $('#skipbck').prop('disabled', true) 
+  }
   const timeFuncs = () => {
     let playtime;
     $("#track-time").text(
@@ -42,18 +46,21 @@ $(document).ready(function () {
 
   let player = new Audio(`./songs/${songs[0]}.mp3`);
   console.log("Jquery Ready");
+
   $(".nav-item").click(function () {
     $(".nav-item.active").removeClass("active");
     $(this).addClass("active");
   });
+
   $(".now-playing").click(function () {
     $(this).addClass("fscreen");
   });
+
   $("#collapse-fscreen").click(function (e) {
     e.stopPropagation();
     $(".now-playing").removeClass("fscreen");
   });
-  player.currentTime = 180;
+
   $(".controller").click(function (e) {
     e.stopPropagation();
     if ($(".play.paused").length == 0) {
@@ -63,16 +70,37 @@ $(document).ready(function () {
       $(".play").removeClass("paused");
       player.play();
     }
+    guardFlow();
     timeFuncs();
   });
+
   $("#skipfwd").click(function (e) {
+
     e.stopPropagation();
+    player.pause();
     iter += 1;
+    guardFlow();
     player.src = `./songs/${songs[iter]}.mp3`;
     player.load();
 
     setTimeout(() => {
       player.play();
+      $(".play").removeClass("paused");
+      timeFuncs();
+    }, 750);
+  });
+  $("#skipbck").click(function (e) {
+
+    e.stopPropagation();
+    player.pause();
+    iter -= 1;
+    guardFlow();
+    player.src = `./songs/${songs[iter]}.mp3`;
+    player.load();
+
+    setTimeout(() => {
+      player.play();
+      $(".play").removeClass("paused");
       timeFuncs();
     }, 750);
   });
