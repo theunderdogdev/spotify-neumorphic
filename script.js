@@ -6,10 +6,15 @@ $(document).ready(function () {
     "Alan_Walker_Ava_Max_Alone_Pt_II",
     "Alan_Walker_Darkside",
   ];
+
   const guardFlow = () => {
-    iter < songs.length - 1 ? $('#skipfwd').prop('disabled', false) : $('#skipfwd').prop('disabled', true);
-    iter > 0 ? $('#skipbck').prop('disabled', false) : $('#skipbck').prop('disabled', true)
-  }
+    iter < songs.length - 1
+      ? $("#skipfwd").prop("disabled", false)
+      : $("#skipfwd").prop("disabled", true);
+    iter > 0
+      ? $("#skipbck").prop("disabled", false)
+      : $("#skipbck").prop("disabled", true);
+  };
   const timeFuncs = () => {
     let playtime;
     $("#track-time").text(
@@ -43,16 +48,18 @@ $(document).ready(function () {
     console.log(player.duration, player);
   };
   let iter = 0;
-
   let player = new Audio(`./songs/${songs[0]}.mp3`);
+  // let player = new Audio(`./songs/${songs[0]}.mp3`);
   console.log("Jquery Ready");
 
   $(".nav-item").click(function () {
     $(".nav-item.active").removeClass("active");
     $(this).addClass("active");
-    $('.viewing').fadeOut(500).removeClass('viewing');
-    console.log($(this).attr('data-view'));
-    $(`.${$(this).attr('data-view')}`).fadeIn(500).addClass('viewing');
+    $(".viewing").fadeOut(500).removeClass("viewing");
+    console.log($(this).attr("data-view"));
+    $(`.${$(this).attr("data-view")}`)
+      .fadeIn(500)
+      .addClass("viewing");
   });
 
   $(".now-playing").click(function () {
@@ -78,7 +85,6 @@ $(document).ready(function () {
   });
 
   $("#skipfwd").click(function (e) {
-
     e.stopPropagation();
     player.pause();
     iter += 1;
@@ -93,7 +99,6 @@ $(document).ready(function () {
     }, 750);
   });
   $("#skipbck").click(function (e) {
-
     e.stopPropagation();
     player.pause();
     iter -= 1;
@@ -118,27 +123,70 @@ $(document).ready(function () {
   });
   let prevpos;
   // Library View Controls
-  $('.data-assets .controller').click(function () {
-    prevpos = $('.library').scrollTop();
-    $('.playlists').css({
-      'transform': 'translateX(-100vw)'
+  $(".data-assets .controller").click(function () {
+    prevpos = $(".library").scrollTop();
+    $(".playlists").css({
+      transform: "translateX(-100vw)",
     });
-    $('.playlist-content').css({
-      'transform': 'translateX(0px)'
-    }).addClass('isactive');
-    $('.subcontroller.back-btn');
-  })
-  $('.subcontroller.back-btn').click(function () {
-    $('.library').animate({
-      scrollTop: prevpos
-    }, 300);
-    $('.subcontroller.back-btn');
-    $('.playlists').css({
-      'transform': 'translateX(0px)'
+    $(".libray").animate({ scrollTop: 0 }, 300);
+    $(".playlist-content")
+      .css({
+        transform: "translateX(0px)",
+      })
+      .addClass("isactive");
+    $(".subcontroller.back-btn");
+  });
+  $(".subcontroller.back-btn").click(function () {
+    $(".library").animate(
+      {
+        scrollTop: prevpos,
+      },
+      300
+    );
+    $(".subcontroller.back-btn");
+    $(".playlists").css({
+      transform: "translateX(0px)",
     });
-    $('.playlist-content').css({
-      'transform': 'translateX(100vw)'
-    }).removeClass('isactive');
-  })
-
+    $(".playlist-content")
+      .css({
+        transform: "translateX(100vw)",
+      })
+      .removeClass("isactive");
+  });
 });
+/*
+This is code jor jsmediatag reader
+let jstagreader = new jsmediatags.Reader();
+  console.log(jstagreader);
+  jstagreader._file =
+    "http://localhost:8080/songs/Alan_Walker_Ava_Max_Alone_Pt_II.mp3";
+  jstagreader.read({
+    onSuccess: (tag) => {
+      console.log("Success!");
+      console.log(tag);
+    },
+    onError: (error) => {
+      console.log("Error");
+      console.log(error);
+    },
+  });
+  jsmediatags.read(
+    "http://127.0.0.1:5500/songs/Alan_Walker_Ava_Max_Alone_Pt_II.mp3",
+    {
+      onSuccess: function (tag) {
+        let picture = tag.tags.picture;
+        var base64String = "";
+        for (var i = 0; i < picture.data.length; i++) {
+          base64String += String.fromCharCode(picture.data[i]);
+        }
+        var imageUri =
+          "data:" + picture.format + ";base64," + window.btoa(base64String);
+        $(".cover-art").attr("src", imageUri);
+        console.log(imageUri);
+      },
+      onError: function (error) {
+        console.log(error);
+      },
+    }
+  );
+ */
