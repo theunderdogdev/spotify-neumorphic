@@ -125,20 +125,20 @@ $(document).ready(function () {
     });
     $('.playlist-content').css({
       'transform': 'translateX(0px)'
-    })
-    $('.subcontroller.back-btn').addClass('isactive');
+    }).addClass('isactive');
+    $('.subcontroller.back-btn');
   })
   $('.subcontroller.back-btn').click(function () {
     $('.library').animate({
       scrollTop: prevpos
     }, 300);
-    $('.subcontroller.back-btn').removeClass('isactive');
+    $('.subcontroller.back-btn');
     $('.playlists').css({
       'transform': 'translateX(0px)'
     });
     $('.playlist-content').css({
       'transform': 'translateX(100vw)'
-    });
+    }).removeClass('isactive');
   })
 
 });

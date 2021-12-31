@@ -1,9 +1,11 @@
+
 @font-face {
-  font-family: "Nunito";
-  src: url("./fonts/nunito-variablefont_wght-webfont.woff2") format("woff2"),
-    url("./fonts/nunito-variablefont_wght-webfont.woff") format("woff");
+  font-family: 'barlow';
+  src: url('./fonts/barlow-regular-webfont.woff2') format('woff2'),
+       url('./fonts/barlow-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+
 }
 
 :root {
@@ -27,16 +29,18 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
-}
+   font-family: 'barlow', sans-serif;}
+
 body {
   background-color: var(--bg);
   background-image: var(--lin-img);
   max-height: 100vh;
 }
-*::-webkit-scrollbar{
+
+*::-webkit-scrollbar {
   display: none;
 }
+
 button {
   outline: none;
   border: none;
@@ -46,6 +50,7 @@ button {
 ul {
   list-style-type: none;
 }
+
 .title {
   font-weight: bolder;
 }
@@ -177,7 +182,8 @@ ul {
   gap: 10px;
   font-size: 13px;
   /* transition: all 0.5s ease-in-out; */
-} 
+}
+
 .track-info .artist {
   font-weight: lighter;
 }
@@ -186,10 +192,12 @@ ul {
   font-weight: bolder;
   font-size: 20px;
 }
+
 .now-playing.fscreen .track-info .artist {
   font-size: 13px;
   font-weight: lighter;
 }
+
 .controller {
   box-shadow: -2px -2px 10px #7a7d8159, 5px 5px 10px #101316,
     inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
@@ -204,6 +212,7 @@ ul {
   color: var(--white);
   /* position: absolute; */
 }
+
 .subcontroller2 {
   box-shadow: -2px -2px 4px #7a7d8159, 5px 5px 10px #101316,
     inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
@@ -217,6 +226,7 @@ ul {
   position: absolute;
   transition: all 0.25s ease-in;
 }
+
 .subcontroller {
   box-shadow: -2px -2px 5px #7a7d8159, 5px 5px 10px #101316,
     inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
@@ -238,9 +248,11 @@ ul {
 .now-playing .controls .subcontroller2 {
   display: none;
 }
+
 button:disabled svg {
   fill: rgb(96 96 96);
 }
+
 .now-playing.fscreen {
   height: 100vh;
   z-index: 6;
@@ -306,18 +318,23 @@ button:disabled svg {
 .now-playing.fscreen .controls .subcontroller2 {
   display: flex;
 }
+
 #report {
   right: 50px;
 }
+
 #like {
   left: 50px;
 }
+
 #skipfwd {
   right: 115px;
 }
+
 #skipbck {
   left: 115px;
 }
+
 .now-playing.fscreen .controls {
   width: 100%;
   height: 175px;
@@ -339,9 +356,11 @@ button:disabled svg {
   align-items: center;
   justify-content: space-between;
 }
+
 .subcontroller2.pressed svg {
   fill: var(--sptgreen);
 }
+
 .play {
   transition: all 0.2s;
   opacity: 0.75;
@@ -373,7 +392,7 @@ h2.greet {
 }
 
 .view {
-  padding: 10px;
+  /* padding: 10px; */
   width: 100%;
   height: 100vh;
   position: relative;
@@ -383,6 +402,7 @@ h2.greet {
 
 .home {
   overflow-y: scroll;
+  display: none;
 }
 
 .tiles {
@@ -418,27 +438,29 @@ h2.greet {
 
 /* Home View */
 /* Library view */
-.library{
+.library {
   overflow-y: scroll;
-  display: none;
+  /* display: none; */
 }
-.wrap-cover{
+
+.wrap-cover {
   position: absolute;
   top: 10px;
   left: 10px;
   width: 75px;
   height: 75px;
-  box-shadow: -10px -10px 35px #393e44bf, 10px 10px 25px #101316,
-  inset 0px 0px 15px #393e44bf, inset 2px 1px 20px #101316;
+  box-shadow: -10px -10px 35px #393e44bf, 10px 10px 25px #101316;
   border: 5px solid #1c1e20;
   border-radius: 10px;
   overflow: hidden;
 }
-.wrap-cover img{
+
+.wrap-cover img {
   width: 95%;
   height: 95%;
 }
-.playlists{
+
+.playlists {
   position: absolute;
   top: 125px;
   left: 0px;
@@ -450,28 +472,31 @@ h2.greet {
   justify-content: flex-start;
   align-items: center;
   gap: 55px;
-  padding: 10px 20px;
+  padding: 10px 25px;
   padding-bottom: 180px;
   transition: all 0.5s ease-in-out;
 }
- .playlist{
-  width:  100%;
+
+.playlist {
+  width: 100%;
   height: 200px;
   background-color: #1b2126;
-  box-shadow:  10px 15px 25px #101316, inset 5px 5px 30px #393e44bf, inset -5px -5px 30px #000000;
+  box-shadow: 10px 15px 25px #101316, inset 5px 5px 30px #393e44bf, inset -5px -5px 30px #000000;
   border: 5px solid #1c1e20;
   border-radius: 20px;
   position: relative;
-  
+
 }
-.text-info{
+
+.text-info {
   width: calc(100% - 125px);
   position: absolute;
   right: 35px;
   padding: 15px;
   font-size: 15px;
 }
-.playlist .subcontroller{
+
+.playlist .subcontroller {
   background-color: var(--black);
   display: flex;
   align-items: center;
@@ -482,28 +507,36 @@ h2.greet {
   top: 15px;
   right: 15px;
 }
-.desc{
+
+.desc {
   color: #8b8b8b;
 }
-.text-info h3{
+
+.text-info h3 {
   font-size: 1.5rem;
+  margin: 5px 0px;
 }
-.data-assets{
+
+.data-assets {
   width: 100%;
   height: 75px;
   position: absolute;
   bottom: 0px;
 }
-.data-assets .controller{
+
+.data-assets .controller {
   left: 25px;
 }
-.data-assets .subcontroller:nth-child(1){
+
+.data-assets .subcontroller:nth-child(1) {
   right: 25px;
 }
-.data-assets .subcontroller:nth-child(2){
+
+.data-assets .subcontroller:nth-child(2) {
   right: 75px;
 }
-.data-assets button{
+
+.data-assets button {
   width: 45px !important;
   height: 45px !important;
   position: absolute !important;
@@ -511,21 +544,130 @@ h2.greet {
   transform: translateY(-50%) !important;
   display: flex !important;
 }
-.playlist-content{
+
+.playlist-content {
   width: 100%;
   position: absolute;
-  top: 15px;
-    transform: translateX(100vw);
+  top: 0px;
+  transform: translateX(100vw);
   transition: all 0.5s ease-in-out;
+  min-height: 100%;
+  overflow-y: scroll;
 }
-.subcontroller.back-btn{
+
+.subcontroller.back-btn {
+  margin: 25px;
   transform: translateY(-100px);
   transition: transform 0.5s .75s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.subcontroller.back-btn.isactive{
+
+.playlist-content.isactive .subcontroller.back-btn {
   transform: translateY(0px);
 }
+
+.cover {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translate(-50%, -250px);
+  width: 170px;
+  height: 170px;
+  box-shadow: -5px -5px 25px #8d8d8d47, 10px 15px 35px #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  transition: transform 0.5s .75s ease-in-out;
+  background-color: #1c1e20;
+
+}
+
+.playlist-title {
+  position: absolute;
+  top: 225px;
+  width: 100%;
+  height: 75px;
+  display: flex;
+}
+.playlist-title .title{
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.playlist-title .by, .playlist-title .likes{
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 5px;
+  font-size: 13px;
+}
+.by{
+  left: 25px;
+}
+.likes{
+  right: 25px;
+}
+
+.playlist-content.isactive .cover {
+  transform: translate(-50%, 0px);
+}
+
+.cover img {
+  width: 95%;
+  height: 95%;
+  border-radius: inherit;
+}
+
+ul.content {
+  position: absolute;
+  padding: 10px 15px;
+  padding-bottom: 200px;
+  top: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.content-detail {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.content-info {
+  height: 100%;
+  padding: 15px 5px;
+  width: calc(100% - 80px);
+  /* font-size: 14px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.content-detail .wrap-cover {
+  width: 60px;
+  height: 60px;
+  position: static;
+  margin: 0px 5px;
+  border-width: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: -10px -10px 35px #393e44bf, 5px 3px 10px #000000;
+}
+
+.content-detail .wrap-cover img {
+  width: 100%;
+  height: 100%;
+}
+
 /* Library view */
