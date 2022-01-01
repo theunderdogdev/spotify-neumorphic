@@ -122,7 +122,18 @@ $(document).ready(function () {
     $(this).toggleClass("pressed");
   });
   let prevpos;
-  // Library View Controls
+  $("#search").on("input", function () {
+    if ($(this).val() != "") {
+      $(".clear").attr("disabled", false);
+    } else {
+      $(".clear").attr("disabled", true);
+    }
+  });
+  $(".clear").click(function () {
+    $("#search").val("");
+    $(this).attr("disabled", true);
+  });
+
   $(".data-assets .controller").click(function () {
     prevpos = $(".library").scrollTop();
     $(".playlists").css({

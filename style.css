@@ -64,21 +64,24 @@ ul {
   height: 100%;
 }
 
-.active {
+.nav-item.active {
   color: var(--sptgreen);
+  box-shadow: -5px -5px 10px rgba(57, 62, 68, 0.75),
+    5px 5px 10px rgb(16, 19, 22), inset -5px -5px 10px rgba(57, 62, 68, 0.75);
 }
 
 .nav-item {
   width: 50px;
   border: 2px solid var(--dark);
-  box-shadow: -5px -5px 10px rgba(57, 62, 68, 0.75),
-    5px 5px 10px rgb(16, 19, 22), inset -5px -5px 10px rgba(57, 62, 68, 0.75);
+  box-shadow: -5px -5px 10px #393e44bf, 5px 5px 10px #101316,
+    inset 5px 5px 10px #393e44bf, inset -5px -5px 10px #101316;
+
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: color 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .bottom-nav {
@@ -436,10 +439,68 @@ h2.greet {
 }
 
 /* Home View */
+/* Search View */
+.search {
+  overflow-y: scroll;
+  /* display: none; */
+}
+.search-field {
+  width: 95%;
+  height: 50px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--black);
+  border: 2px solid #373a3c;
+  border-radius: 10px;
+  box-shadow: 0px 0px 35px #d1d4d747, 10px 10px 25px #000000,
+    inset -5px -5px 20px #7b7e8154, inset 5px 5px 15px #1a1919;
+  display: flex;
+  align-items: center;
+}
+
+.search-field .clear {
+  width: 30px;
+  height: 100%;
+  background-color: transparent;
+  opacity: 1;
+}
+.search-field .clear:disabled {
+  opacity: 0;
+}
+.search-field .searchico {
+  width: 30px;
+  height: 100%;
+  background-color: transparent;
+  margin-right: 5px;
+}
+
+.search-field input {
+  width: calc(100% - 70px);
+  height: 100%;
+  padding: 5px 20px;
+  font-size: 18px;
+  background-color: transparent;
+  color: var(--white);
+  border: none;
+  /* box-shadow: 0px 0px 35px #d1d4d747, 10px 10px 25px #000000,
+    inset -5px -5px 20px #7b7e8154, inset 5px 5px 15px #1a1919; */
+  outline-style: none;
+  /* transition: all 0.5s ease-in-out; */
+}
+.search-field input::placeholder {
+  transition: all 0.5s ease-in-out;
+}
+.search-field input:focus::placeholder {
+  opacity: 0;
+}
+/* Search View */
+
 /* Library view */
 .library {
   overflow-y: scroll;
-  /* display: none; */
+  display: none;
 }
 
 .wrap-cover {
