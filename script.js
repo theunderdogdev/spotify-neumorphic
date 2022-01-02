@@ -164,6 +164,19 @@ $(document).ready(function () {
       })
       .removeClass("isactive");
   });
+  // Profile View
+  $('#edit-info').click(function(){
+    console.log('hi');
+      if($("#edit-info.active").length == 0){
+          $(this).addClass('active');
+          $('.profile.view.viewing input').attr('disabled', false);
+      }
+      else{
+        $(this).removeClass('active');
+        $('.profile.view.viewing input').attr('disabled', true);
+
+      }
+  })
 });
 /*
 This is code jor jsmediatag reader
