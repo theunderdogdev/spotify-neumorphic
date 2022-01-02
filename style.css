@@ -425,6 +425,7 @@ h2.greet {
 }
 
 .recent {
+  position: relative;
   box-shadow: var(--relief);
   background-color: var(--dark);
   border: 3px solid var(--black);
@@ -433,7 +434,18 @@ h2.greet {
   border-radius: 20px;
   overflow: hidden;
 }
-
+.recent p {
+  width: calc(100% - 35%);
+  padding: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 .rec-img {
   width: 35%;
   height: 100%;
