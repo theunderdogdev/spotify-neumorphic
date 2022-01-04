@@ -57,7 +57,7 @@ ul {
 .title {
   font-weight: bolder;
 }
-input{
+input {
   outline: none;
 }
 
@@ -195,7 +195,22 @@ input{
   justify-content: center;
   gap: 10px;
   font-size: 13px;
+  text-align: center;
+  text-transform: capitalize;
   /* transition: all 0.5s ease-in-out; */
+}
+.now-playing .track-info div {
+  max-width: 200px;
+  height: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.now-playing.fscreen .track-info div {
+  max-width: 100%;
+  white-space: normal;
+  height: auto;
+  overflow: visible;
 }
 
 .track-info .artist {
@@ -335,19 +350,19 @@ button:disabled svg {
 }
 
 #report {
-  right: 50px;
+  right: calc(50% - 150px);
 }
 
 #like {
-  left: 50px;
+  left: calc(50% - 150px);
 }
 
 #skipfwd {
-  right: 115px;
+  right: calc(50% - 95px);
 }
 
 #skipbck {
-  left: 115px;
+  left: calc(50% - 95px);
 }
 
 .now-playing.fscreen .controls {
@@ -481,12 +496,11 @@ h2.greet {
   left: 50%;
   height: 120px;
   transform: translateX(-50%);
-  z-index: 3;  
+  z-index: 3;
   backdrop-filter: blur(50px);
   background-color: #363b3e78;
   -webkit-backdrop-filter: blur(50px);
-
-  }
+}
 
 .search-field {
   position: absolute;
@@ -502,7 +516,6 @@ h2.greet {
     inset -5px -5px 20px #7b7e8154, inset 5px 5px 15px #1a1919;
   display: flex;
   align-items: center;
-  
 }
 
 .search-field .clear {
@@ -621,7 +634,7 @@ h2.greet {
   justify-content: flex-start;
   gap: 15px;
 }
-.header span{
+.header span {
   font-size: 20px;
 }
 
@@ -636,7 +649,8 @@ h2.greet {
   font-size: 25px;
   border-radius: 50%;
   border: 2px solid var(--dark);
-  box-shadow: -2px -2px 10px #e8ebeb23, 5px 5px 10px #101316, inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59
+  box-shadow: -2px -2px 10px #e8ebeb23, 5px 5px 10px #101316,
+    inset -5px -5px 10px #eaf5f514, inset 5px 5px 10px #0a0c0c59;
 }
 
 .tab-buttons {
@@ -656,7 +670,8 @@ a.tab {
   padding: 10px;
   border: 3px solid var(--dark);
   border-radius: 10px;
-  box-shadow: -5px -5px 10px #393e44bf, 5px 5px 10px #101316, inset 5px 5px 10px #393e44bf, inset -5px -5px 10px #101316;
+  box-shadow: -5px -5px 10px #393e44bf, 5px 5px 10px #101316,
+    inset 5px 5px 10px #393e44bf, inset -5px -5px 10px #101316;
 }
 
 a.tab.active {
@@ -923,7 +938,7 @@ ul.content {
   overflow-y: scroll;
   /* display: none; */
 }
-.profile input{
+.profile input {
   font-size: 20px;
   color: var(--white);
   pointer-events: all;
@@ -935,22 +950,21 @@ ul.content {
   background: transparent;
   height: 50px;
 }
-.profile input:disabled{
+.profile input:disabled {
   border: 3px solid transparent;
   /* box-shadow: none; */
 }
-.user-info{
+.user-info {
   position: relative;
   width: 100%;
   height: 200px;
   pointer-events: none;
-
 }
-.user-info .user-ico{
+.user-info .user-ico {
   position: absolute;
   top: 25px;
   left: 50%;
-  transform: translate(-50%,0%);
+  transform: translate(-50%, 0%);
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -958,47 +972,46 @@ ul.content {
   border: 3px solid var(--dark);
   box-shadow: -10px -10px 35px #4c5157bf, 5px 3px 10px #000000;
 }
-.user-info input{
+.user-info input {
   position: absolute;
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-
 }
 
-#edit-info{
+#edit-info {
   width: 45px;
   height: 45px;
   position: absolute;
   top: 25px;
   right: 25px;
 }
-#edit-info.active svg{
+#edit-info.active svg {
   fill: var(--sptgreen);
 }
-.user-details .group label{
+.user-details .group label {
   font-size: 20px;
   width: 100px;
   color: #b6b6b6;
   padding: 10px;
 }
-.user-details input{
+.user-details input {
   width: calc(100% - 120px);
 }
-.user-details input:disabled{
+.user-details input:disabled {
   text-align: left;
 }
-.user-details{
+.user-details {
   width: 100%;
 }
-.user-details .group{
+.user-details .group {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60px;
   width: 100%;
 }
-.user-ico img{
+.user-ico img {
   width: 100%;
   height: 100%;
 }
