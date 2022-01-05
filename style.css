@@ -28,6 +28,7 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: "barlow", sans-serif;
+  /* outline: 1px solid #f00 !important; */
 }
 
 body {
@@ -59,6 +60,7 @@ ul {
 }
 input {
   outline: none;
+  border: none;
 }
 
 /* .link{
@@ -67,6 +69,33 @@ input {
 
 
 } */
+.alert {
+  position: fixed;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 50px;
+  color: var(--white);
+  font-size: large;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  z-index: 10;
+  background-color: var(--dark);
+  border-radius: 20px;
+  box-shadow: -5px -5px 10px rgba(57, 62, 68, 0.75),
+    5px 5px 10px rgb(16, 19, 22), inset -5px -5px 10px rgba(57, 62, 68, 0.75);
+  transition: top 0.125s ease-in;
+}
+.alert.alerting {
+  top: 15px;
+}
+
+.alert .bi {
+  position: absolute;
+  right: 25px;
+}
 /* Navbar */
 .nav-items {
   display: flex;
@@ -416,9 +445,11 @@ button:disabled svg {
 
 /* Home View */
 h2.greet {
-  position: absolute;
+  margin-top: 25px;
+  margin-left: 35px;
+  /* position: absolute;
   top: 35px;
-  left: 30px;
+  left: 30px; */
 }
 
 .view {
@@ -432,18 +463,18 @@ h2.greet {
 
 .home {
   overflow-y: scroll;
-  display: none;
+  /* display: none; */
 }
 
 .tiles {
   width: 100%;
-  height: 400px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.recents {
+.top-trends {
   width: 45%;
   height: 300px;
   display: flex;
@@ -452,7 +483,7 @@ h2.greet {
   justify-content: space-evenly;
 }
 
-.recent {
+.top-trend {
   position: relative;
   box-shadow: var(--relief);
   background-color: var(--dark);
@@ -463,7 +494,7 @@ h2.greet {
   overflow: hidden;
 }
 
-.recent p {
+.top-trend p {
   width: calc(100% - 35%);
   padding: 10px;
   font-size: 14px;
@@ -481,7 +512,65 @@ h2.greet {
   height: 100%;
   object-fit: cover;
 }
-
+.user-choices {
+  overflow-x: scroll !important;
+  width: 100%;
+  height: 270px;
+}
+.user-choices .abt {
+  margin: 10px 25px;
+}
+.recents {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
+  padding-right: 25px;
+  overflow-x: scroll;
+}
+.recent {
+  height: 100%;
+  width: 150px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.recent .album {
+  position: relative;
+  box-shadow: -6px -3px 20px #b7b9bd59, 5px 5px 30px #000000;
+  background-color: var(--dark);
+  border: 3px solid var(--black);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.recent .album img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recent .recent-info {
+  width: 100%;
+  padding: 5px;
+  height: calc(100% - 100px);
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.recent-info h4 {
+  font-weight: 500;
+}
+.recent-info h5 {
+  font-weight: 300;
+  color: #a4a7ad;
+}
 /* Home View */
 /* Search View */
 .search {
@@ -612,17 +701,21 @@ h2.greet {
 /* Library view */
 .library {
   overflow-y: scroll;
+  overflow-x: hidden;
   display: none;
+}
+.user-library {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+
+  transition: all 0.5s ease-in-out;
 }
 
 .library-header {
+  padding: 10px;
   width: 100%;
   height: 150px;
-  position: fixed;
-  top: 0px;
-  z-index: 2;
-  backdrop-filter: blur(50px);
-  background-color: #363b3e78;
 }
 
 .header {
@@ -699,10 +792,9 @@ a.tab.active {
 }
 
 .playlists {
-  position: absolute;
-  top: 165px;
-  left: 0px;
-  padding-bottom: 180px;
+  /* position: absolute;
+  top: 0px;
+  left: 0px; */
   width: 100%;
   height: auto;
   display: flex;
@@ -710,9 +802,8 @@ a.tab.active {
   justify-content: flex-start;
   align-items: center;
   gap: 55px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   padding-bottom: 190px;
-  transition: all 0.5s ease-in-out;
 }
 
 .playlist {
@@ -936,7 +1027,7 @@ ul.content {
 /* Profile View */
 .profile {
   overflow-y: scroll;
-  /* display: none; */
+  display: none;
 }
 .profile input {
   font-size: 20px;
@@ -944,14 +1035,13 @@ ul.content {
   pointer-events: all;
   transition: all 0.5s ease-in-out;
   text-align: center;
-  border: 3px solid var(--dark);
+  border-bottom: 1px solid var(--white);
   padding: 5px 20px;
-  border-radius: 15px;
   background: transparent;
   height: 50px;
 }
 .profile input:disabled {
-  border: 3px solid transparent;
+  border-bottom: 1px solid transparent;
   /* box-shadow: none; */
 }
 .user-info {
@@ -979,12 +1069,22 @@ ul.content {
   transform: translateX(-50%);
 }
 
-#edit-info {
+#edit-info,
+#save-info {
   width: 45px;
   height: 45px;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#edit-info {
   top: 25px;
   right: 25px;
+}
+#save-info {
+  right: 25px;
+  top: 85px;
 }
 #edit-info.active svg {
   fill: var(--sptgreen);
@@ -1014,5 +1114,27 @@ ul.content {
 .user-ico img {
   width: 100%;
   height: 100%;
+}
+.app-settings {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 200px;
+}
+.setting {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-inline: 50px;
+}
+.setting svg {
+  position: absolute;
+  right: 25px;
 }
 /* Profile View */

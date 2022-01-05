@@ -15,10 +15,19 @@
 
 <body>
 
+    <div class="alert">Alert
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="lime" class="bi bi-check-circle-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </svg>
+
+    </div>
 
     <nav class="bottom-nav">
         <ul class="nav-items">
-            <li class="nav-item" data-view="home">
+            <li class="nav-item active" data-view="home">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-house-door-fill" viewBox="0 0 16 16">
                     <path
@@ -39,7 +48,7 @@
                         d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </li>
-            <li class="nav-item active" data-view="profile">
+            <li class="nav-item" data-view="profile">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-gear-fill" viewBox="0 0 16 16">
                     <path
@@ -56,8 +65,8 @@
                     <path fill-rule="evenodd"
                         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
                 </svg></button>
-            <button class="viewcontrol"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
-                    class="bi bi-three-dots" viewBox="0 0 16 16">
+            <button class="viewcontrol" id="misc"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path
                         d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                 </svg></button>
@@ -118,35 +127,72 @@
 
     </div>
 
-    <div class="home view">
+    <div class="home view viewing">
         <h2 class="greet">Good Morning!</h2>
         <div class="tiles">
-            <ul class="recents">
-                <li class="recent"><img class="rec-img" src="./images/cover.jpeg" alt="" srcset="">
+            <ul class="top-trends">
+                <li class="top-trend"><img class="rec-img" src="./images/cover.jpeg" alt="" srcset="">
                     <p>Lorem ipsum dolor sit amet.</p>
                 </li>
-                <li class="recent"><img class="rec-img" src="./images/cover2.jpeg" alt="" srcset="">
+                <li class="top-trend"><img class="rec-img" src="./images/cover2.jpeg" alt="" srcset="">
                     <p>Lorem ipsum dolor sit amet.</p>
                 </li>
-                <li class="recent"><img class="rec-img" src="./images/cover3.jpeg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </li>
-            </ul>
-            <ul class="recents">
-                <li class="recent"><img class="rec-img" src="./images/cover4.jpeg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </li>
-                <li class="recent"><img class="rec-img" src="./images/cover7.jpeg" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                </li>
-                <li class="recent"><img class="rec-img" src="./images/cover6.jpeg" alt="" srcset="">
+                <li class="top-trend"><img class="rec-img" src="./images/cover3.jpeg" alt="" srcset="">
                     <p>Lorem ipsum dolor sit amet.</p>
                 </li>
             </ul>
+            <ul class="top-trends">
+                <li class="top-trend"><img class="rec-img" src="./images/cover4.jpeg" alt="" srcset="">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </li>
+                <li class="top-trend"><img class="rec-img" src="./images/cover7.jpeg" alt="" srcset="">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </li>
+                <li class="top-trend"><img class="rec-img" src="./images/cover6.jpeg" alt="" srcset="">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="user-choices">
+            <h3 class="abt">Recently Played</h3>
+            <ul class="recents">
+                <li class="recent">
+                    <div class="album"><img src="./images/cover6.jpeg" alt=""></div>
+                    <div class="recent-info">
+                        <h4>Playlist Name</h4>
+                        <h5>Playlist Name</h5>
 
+                    </div>
+                </li>
+                <li class="recent">
+                    <div class="album"><img src="./images/cover6.jpeg" alt=""></div>
+                    <div class="recent-info">
+                        <h4>Playlist Name</h4>
+                        <h5>Playlist Name</h5>
+
+                    </div>
+                </li>
+                <li class="recent">
+                    <div class="album"><img src="./images/cover6.jpeg" alt=""></div>
+                    <div class="recent-info">
+                        <h4>Playlist Name</h4>
+                        <h5>Playlist Name</h5>
+
+                    </div>
+                </li>
+                <li class="recent">
+                    <div class="album"><img src="./images/cover6.jpeg" alt=""></div>
+                    <div class="recent-info">
+                        <h4>Playlist Name</h4>
+                        <h5>Playlist Name</h5>
+
+                    </div>
+                </li>
+
+            </ul>
         </div>
     </div>
-    <div class="search view">
+    <div class="search view ">
         <div class="searchbox">
             <div class="search-field">
                 <input type="text" id="search" placeholder="Artists, songs or podcasts" autocomplete="off">
@@ -202,180 +248,188 @@
         </div>
     </div>
     <div class="library view">
-        <div class="library-header">
-            <div class="header">
-                <a href="" class="link user-init">S</a>
-                <span>Your Library</span>
+        <div class="user-library">
+            <div class="library-header">
+                <div class="header">
+                    <a href="" class="link user-init">S</a>
+                    <span>Your Library</span>
+                </div>
+                <div class="tab-buttons">
+                    <a href="#" class="tab active">Playlists</a>
+                    <a href="#" class="tab">Podcasts & Shows</a>
+                </div>
             </div>
-            <div class="tab-buttons">
-                <a href="#" class="tab active">Playlists</a>
-                <a href="#" class="tab">Podcasts & Shows</a>
-            </div>
+            <ul class="playlists">
+
+                <li class="playlist">
+                    <div class="wrap-cover">
+                        <img src="./images/cover.jpeg" alt="">
+                    </div>
+                    <div class="text-info">
+                        <h3 class="title">Some Heading</h3>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,
+                            facilis.
+                        </div>
+                    </div>
+                    <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
+                            <path
+                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                    </button>
+                    <div class="data-assets">
+                        <button class="controller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                            </svg>
+                        </button>
+
+                    </div>
+                </li>
+                <li class="playlist">
+                    <div class="wrap-cover">
+                        <img src="./images/cover2.jpeg" alt="">
+                    </div>
+                    <div class="text-info">
+                        <h3 class="title">Some Heading</h3>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,
+                            facilis.
+                        </div>
+                    </div>
+                    <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
+                            <path
+                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                    </button>
+                    <div class="data-assets">
+                        <button class="controller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                            </svg>
+                        </button>
+
+                    </div>
+                </li>
+                <li class="playlist">
+                    <div class="wrap-cover">
+                        <img src="./images/cover3.jpeg" alt="">
+                    </div>
+                    <div class="text-info">
+                        <h3 class="title">Some Heading</h3>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,
+                            facilis.
+                        </div>
+                    </div>
+                    <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
+                            <path
+                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                    </button>
+                    <div class="data-assets">
+                        <button class="controller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                            </svg>
+                        </button>
+
+                    </div>
+                </li>
+                <li class="playlist">
+                    <div class="wrap-cover">
+                        <img src="./images/cover4.jpeg" alt="">
+                    </div>
+                    <div class="text-info">
+                        <h3 class="title">Some Heading</h3>
+                        <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,
+                            facilis.
+                        </div>
+                    </div>
+                    <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
+                            <path
+                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
+                    </button>
+                    <div class="data-assets">
+                        <button class="controller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-play-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
+                                class="bi bi-check-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                            </svg>
+                        </button>
+                        <button class="subcontroller">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                                class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                            </svg>
+                        </button>
+
+                    </div>
+                </li>
+
+
+            </ul>
         </div>
-        <ul class="playlists">
-            <li class="playlist">
-                <div class="wrap-cover">
-                    <img src="./images/cover.jpeg" alt="">
-                </div>
-                <div class="text-info">
-                    <h3 class="title">Some Heading</h3>
-                    <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, facilis.
-                    </div>
-                </div>
-                <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
-                        <path
-                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
-                </button>
-                <div class="data-assets">
-                    <button class="controller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-play-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
-                            class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                        </svg>
-                    </button>
 
-                </div>
-            </li>
-            <li class="playlist">
-                <div class="wrap-cover">
-                    <img src="./images/cover2.jpeg" alt="">
-                </div>
-                <div class="text-info">
-                    <h3 class="title">Some Heading</h3>
-                    <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, facilis.
-                    </div>
-                </div>
-                <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
-                        <path
-                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
-                </button>
-                <div class="data-assets">
-                    <button class="controller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-play-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
-                            class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                        </svg>
-                    </button>
-
-                </div>
-            </li>
-            <li class="playlist">
-                <div class="wrap-cover">
-                    <img src="./images/cover3.jpeg" alt="">
-                </div>
-                <div class="text-info">
-                    <h3 class="title">Some Heading</h3>
-                    <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, facilis.
-                    </div>
-                </div>
-                <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
-                        <path
-                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
-                </button>
-                <div class="data-assets">
-                    <button class="controller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-play-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
-                            class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                        </svg>
-                    </button>
-
-                </div>
-            </li>
-            <li class="playlist">
-                <div class="wrap-cover">
-                    <img src="./images/cover4.jpeg" alt="">
-                </div>
-                <div class="text-info">
-                    <h3 class="title">Some Heading</h3>
-                    <div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, facilis.
-                    </div>
-                </div>
-                <button class="subcontroller"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="#f5f5f5" class="bi bi-three-dots" viewBox="0 0 16 16">
-                        <path
-                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                    </svg>
-                </button>
-                <div class="data-assets">
-                    <button class="controller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-play-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                        </svg>
-                    </button>
-                    <button class="subcontroller">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
-                            class="bi bi-heart-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                        </svg>
-                    </button>
-
-                </div>
-            </li>
-
-
-        </ul>
         <div class="playlist-content">
             <button class="subcontroller back-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f5f5f5" class="bi bi-chevron-left"
@@ -433,7 +487,7 @@
         </div>
     </div>
     </div>
-    <div class="profile view viewing">
+    <div class="profile view">
         <button id="edit-info" class="subcontroller">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5" class="bi bi-pencil-fill"
                 viewBox="0 0 16 16">
@@ -441,6 +495,15 @@
                     d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
             </svg>
         </button>
+        <button id="save-info" class="subcontroller">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5f5f5"
+                class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z" />
+            </svg>
+
+        </button>
+
         <div class="user-info">
             <div class="user-ico">
                 <img src="./images/cover6.jpeg" alt="">
@@ -461,9 +524,49 @@
                 <label for="contact">Contact</label>
                 <input type="tel" name="contact" value="9988776655" disabled>
             </div>
-
-
+            <div class="group">
+                <label for="sub-type">Mode</label>
+                <input type="text" name="sub-type" value="FREE" disabled>
+            </div>
         </form>
+        <ul class="app-settings">
+            <li class="setting">Data Saver
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </li>
+            <li class="setting">Languages
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </li>
+            <li class="setting">Playback
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </li>
+            <li class="setting">Devices
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </li>
+            <li class="setting">Social
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </li>
+
+        </ul>
     </div>
 </body>
 
@@ -480,5 +583,7 @@
   <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
 </svg>
 
-
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg>
 -->

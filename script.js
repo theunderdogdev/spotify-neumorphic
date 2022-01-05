@@ -6,7 +6,9 @@ $(document).ready(function () {
     "unity",
     "warriyo mortals",
   ];
-
+  const closeAlert = () => {
+    $(".alert.alerting").removeClass("alerting");
+  };
   const loadMetadata = () => {
     jsmediatags.read(`http://127.0.0.1:5500/songs/${songs[iter]}.mp3`, {
       onSuccess: function (tag) {
@@ -158,11 +160,9 @@ $(document).ready(function () {
   });
 
   $(".data-assets .controller").click(function () {
-    prevpos = $(".library").scrollTop();
-    $(".playlists").css({
+    $(".user-library").css({
       transform: "translateX(-100vw)",
     });
-    $(".libray").animate({ scrollTop: 0 }, 300);
     $(".playlist-content")
       .css({
         transform: "translateX(0px)",
@@ -171,14 +171,8 @@ $(document).ready(function () {
     $(".subcontroller.back-btn");
   });
   $(".subcontroller.back-btn").click(function () {
-    $(".library").animate(
-      {
-        scrollTop: prevpos,
-      },
-      300
-    );
     $(".subcontroller.back-btn");
-    $(".playlists").css({
+    $(".user-library").css({
       transform: "translateX(0px)",
     });
     $(".playlist-content")
@@ -198,5 +192,10 @@ $(document).ready(function () {
       $(this).removeClass("active");
       $(".profile.view.viewing input").attr("disabled", true);
     }
+  });
+
+  $("#save-info").click(function () {
+    $(".alert").addClass("alerting");
+    setTimeout(closeAlert, 2000);
   });
 });
