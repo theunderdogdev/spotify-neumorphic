@@ -1,3 +1,4 @@
+import { homeViewTrends, homeRecents } from "./templates.js";
 $(document).ready(function () {
   const songs = [
     "alone pt 2",
@@ -6,6 +7,30 @@ $(document).ready(function () {
     "unity",
     "warriyo mortals",
   ];
+  const images = [
+    "cover.jpeg",
+    "cover2.jpeg",
+    "cover3.jpeg",
+    "cover4.jpeg",
+    "cover5.jpeg",
+    "cover6.jpeg",
+    "cover7.jpeg",
+  ];
+  $(".tiles").append(
+    homeViewTrends(images, [
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+    ])
+  );
+  for (let i = 0; i < 10; i++) {
+    $("ul.recents").append(
+      homeRecents(images[Math.floor(Math.random() * 6)], "Title", "Subtitle")
+    );
+  }
   const closeAlert = () => {
     $(".alert.alerting").removeClass("alerting");
   };
