@@ -230,7 +230,6 @@ input {
 }
 .now-playing .track-info div {
   max-width: 200px;
-  height: 13px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -649,18 +648,24 @@ h2.greet {
 .search-field input:focus::placeholder {
   opacity: 0;
 }
-
-.tops {
+#user-genres-choice{
   position: absolute;
   top: 120px;
+  height: calc(100vh - 120px);
+  width: 100%;
+  padding-bottom: 220px;
+  overflow-y: scroll;
+
+}
+.tops { 
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  padding-bottom: 220px;
 }
+
 
 .genre {
   width: 100%;
@@ -699,7 +704,6 @@ h2.greet {
 .library {
   overflow-y: scroll;
   overflow-x: hidden;
-  display: none;
 }
 .user-library {
   width: 100%;

@@ -1,5 +1,14 @@
-import { homeViewTrends, homeRecents } from "./templates.js";
+import {
+  homeViewTrends,
+  homeRecents,
+  searchTopGenres,
+  generatePlaylist
+} from "./templates.js";
+const generateRandomImageIndex = () => {
+  return Math.floor(Math.random() * 6);
+}
 $(document).ready(function () {
+  console.log("Jquery Ready");
   const songs = [
     "alone pt 2",
     "crowd control",
@@ -7,6 +16,7 @@ $(document).ready(function () {
     "unity",
     "warriyo mortals",
   ];
+  /* UI Templates generation */
   const images = [
     "cover.jpeg",
     "cover2.jpeg",
@@ -31,9 +41,21 @@ $(document).ready(function () {
       homeRecents(images[Math.floor(Math.random() * 6)], "Title", "Subtitle")
     );
   }
+  $('ul#top-genres').append(searchTopGenres([images[generateRandomImageIndex()], images[generateRandomImageIndex()]])).append(searchTopGenres([images[generateRandomImageIndex()], images[generateRandomImageIndex()]]));
+  for (let i = 0; i < 10; i++) {
+    $('ul#all-genres').append(searchTopGenres([images[generateRandomImageIndex()], images[generateRandomImageIndex()]]))
+  }
+  for (let i = 0; i < 4; i++) {
+    $('ul.playlists').append(generatePlaylist(images[Math.floor(Math.random() * 6)], "Some Heading",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,facilis."))
+  }
   const closeAlert = () => {
     $(".alert.alerting").removeClass("alerting");
   };
+  /* UI Templates generation */
+
+  /* Music Meta Data Part */
+
   const loadMetadata = () => {
     jsmediatags.read(`http://127.0.0.1:5500/songs/${songs[iter]}.mp3`, {
       onSuccess: function (tag) {
@@ -54,14 +76,17 @@ $(document).ready(function () {
       },
     });
   };
+  /* Music Meta Data Part */
+
+  /* Music Control Part */
 
   const guardFlow = () => {
-    iter < songs.length - 1
-      ? $("#skipfwd").prop("disabled", false)
-      : $("#skipfwd").prop("disabled", true);
-    iter > 0
-      ? $("#skipbck").prop("disabled", false)
-      : $("#skipbck").prop("disabled", true);
+    iter < songs.length - 1 ?
+      $("#skipfwd").prop("disabled", false) :
+      $("#skipfwd").prop("disabled", true);
+    iter > 0 ?
+      $("#skipbck").prop("disabled", false) :
+      $("#skipbck").prop("disabled", true);
   };
 
   const timeFuncs = () => {
@@ -82,13 +107,10 @@ $(document).ready(function () {
         }
       } else {
         if (playtime - 60 * Math.floor(playtime / 60) < 10) {
-          playtime = `${Math.floor(playtime / 60)}:0${
-            playtime - 60 * Math.floor(playtime / 60)
+          playtime = `${Math.floor(playtime / 60)}:0${ playtime - 60 * Math.floor(playtime / 60)
           }`;
         } else {
-          playtime = `${Math.floor(playtime / 60)}:${
-            playtime - 60 * Math.floor(playtime / 60)
-          }`;
+          playtime = `${Math.floor(playtime / 60)}:${playtime - 60 * Math.floor(playtime / 60)}`;
         }
       }
       $("#playtime").text(playtime);
@@ -97,8 +119,6 @@ $(document).ready(function () {
   };
   let iter = 1;
   let player = new Audio(`./songs/${songs[iter]}.mp3`);
-  // let player = new Audio(`./songs/${songs[0]}.mp3`);
-  console.log("Jquery Ready");
 
   $(".nav-item").click(function () {
     $(".nav-item.active").removeClass("active");
@@ -171,7 +191,6 @@ $(document).ready(function () {
     e.stopPropagation();
     $(this).toggleClass("pressed");
   });
-  let prevpos;
   $("#search").on("input", function () {
     if ($(this).val() != "") {
       $(".clear").attr("disabled", false);
@@ -188,6 +207,8 @@ $(document).ready(function () {
     $(".user-library").css({
       transform: "translateX(-100vw)",
     });
+    $(".playlist-content .cover img").attr("src","./images/"+$(this).attr('data-image'));
+
     $(".playlist-content")
       .css({
         transform: "translateX(0px)",
