@@ -1,5 +1,10 @@
 //this will have templates here which will be inserted into html via javascript
-
+/**
+ *
+ * @param {string[6]} imgName
+ * @param {string[6]} contentText
+ * @returns {string}
+ */
 export const homeViewTrends = (imgName, contentText) => {
   const template = `
   <ul class="top-trends">
@@ -33,6 +38,13 @@ export const homeViewTrends = (imgName, contentText) => {
   `;
   return template;
 };
+/**
+ *
+ * @param {string} imgName
+ * @param {string} platlistTitle
+ * @param {string} platlistSubTitle
+ * @returns {string}
+ */
 export const homeRecents = (imgName, platlistTitle, platlistSubTitle) => {
   const template = `
       <li class="recent">
@@ -46,6 +58,11 @@ export const homeRecents = (imgName, platlistTitle, platlistSubTitle) => {
   `;
   return template;
 };
+/**
+ *
+ * @param {string[2]} imgNames
+ * @returns {string}
+ */
 export const searchTopGenre = (imgNames) => {
   const template = `
       <li class="genre">
@@ -53,4 +70,5 @@ export const searchTopGenre = (imgNames) => {
           <div class="genreinfo"><img src="./images/cover3.jpeg" alt=""></div>
       </li>
   `;
+  return template;
 };
