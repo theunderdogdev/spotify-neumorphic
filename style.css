@@ -444,11 +444,8 @@ button:disabled svg {
 
 /* Home View */
 h2.greet {
-  margin-top: 25px;
-  margin-left: 35px;
-  /* position: absolute;
-  top: 35px;
-  left: 30px; */
+  margin-top: 50px;
+  margin-left: 25px;
 }
 
 .view {
@@ -516,10 +513,10 @@ h2.greet {
 .user-choices {
   overflow-x: scroll !important;
   width: 100%;
-  height: 270px;
+  height: 300px;
 }
 .user-choices .abt {
-  margin: 10px 25px;
+  margin: 25px;
 }
 .recents {
   width: 100%;
@@ -533,7 +530,7 @@ h2.greet {
 }
 .recent {
   height: 100%;
-  width: 150px;
+  width: fit-content;
   padding: 15px;
   display: flex;
   align-items: center;
@@ -547,7 +544,7 @@ h2.greet {
   border: 3px solid var(--black);
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 10px;
   overflow: hidden;
 }
 .recent .album img {
@@ -648,54 +645,54 @@ h2.greet {
 .search-field input:focus::placeholder {
   opacity: 0;
 }
-#user-genres-choice{
+#user-genres-choice {
   position: absolute;
-  top: 120px;
-  height: calc(100vh - 120px);
+  top: 0px;
+  height: 100vh;
   width: 100%;
   padding-bottom: 220px;
+  padding-top: 120px;
   overflow-y: scroll;
-
 }
-.tops { 
+.tops {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 30px;
 }
-
 
 .genre {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   padding: 0px 10px;
 }
 
 .genreinfo {
-  width: 175px;
+  width: 160px;
   height: 100px;
   border-radius: 10px;
   background-color: #1b2126;
   box-shadow: -5px -5px 25px #72757847, 10px 15px 25px #101316;
   border: 3px solid #1c1e20;
+  overflow: hidden;
 }
 
 .heading {
   align-self: flex-start;
-  margin: 20px;
+  margin: 0px 40px;
 }
-
+#all-genres {
+  margin-top: 30px;
+}
 .genreinfo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  border-radius: inherit;
 }
 
 /* Search View */
@@ -1137,4 +1134,23 @@ ul.content {
   position: absolute;
   right: 25px;
 }
+#misc {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  bottom: 0px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  transform: translateY(110vh);
+  background-color: #1b21265d;
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+}
+#misc.active {
+  transform: translateY(0vh);
+}
+#misc .subcontroller {
+  margin: 25px;
+}
+
 /* Profile View */

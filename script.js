@@ -2,11 +2,11 @@ import {
   homeViewTrends,
   homeRecents,
   searchTopGenres,
-  generatePlaylist
+  generatePlaylist,
 } from "./templates.js";
 const generateRandomImageIndex = () => {
   return Math.floor(Math.random() * 6);
-}
+};
 $(document).ready(function () {
   console.log("Jquery Ready");
   const songs = [
@@ -38,16 +38,42 @@ $(document).ready(function () {
   );
   for (let i = 0; i < 10; i++) {
     $("ul.recents").append(
-      homeRecents(images[Math.floor(Math.random() * 6)], "Title", "Subtitle")
+      homeRecents(
+        images[Math.floor(Math.random() * 6)],
+        "Different World World",
+        "Lorem Ipsum Dol"
+      )
     );
   }
-  $('ul#top-genres').append(searchTopGenres([images[generateRandomImageIndex()], images[generateRandomImageIndex()]])).append(searchTopGenres([images[generateRandomImageIndex()], images[generateRandomImageIndex()]]));
+  $("ul#top-genres")
+    .append(
+      searchTopGenres([
+        images[generateRandomImageIndex()],
+        images[generateRandomImageIndex()],
+      ])
+    )
+    .append(
+      searchTopGenres([
+        images[generateRandomImageIndex()],
+        images[generateRandomImageIndex()],
+      ])
+    );
   for (let i = 0; i < 10; i++) {
-    $('ul#all-genres').append(searchTopGenres([images[generateRandomImageIndex()], images[generateRandomImageIndex()]]))
+    $("ul#all-genres").append(
+      searchTopGenres([
+        images[generateRandomImageIndex()],
+        images[generateRandomImageIndex()],
+      ])
+    );
   }
   for (let i = 0; i < 4; i++) {
-    $('ul.playlists').append(generatePlaylist(images[Math.floor(Math.random() * 6)], "Some Heading",
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,facilis."))
+    $("ul.playlists").append(
+      generatePlaylist(
+        images[Math.floor(Math.random() * 6)],
+        "Some Heading",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus,facilis."
+      )
+    );
   }
   const closeAlert = () => {
     $(".alert.alerting").removeClass("alerting");
@@ -81,12 +107,12 @@ $(document).ready(function () {
   /* Music Control Part */
 
   const guardFlow = () => {
-    iter < songs.length - 1 ?
-      $("#skipfwd").prop("disabled", false) :
-      $("#skipfwd").prop("disabled", true);
-    iter > 0 ?
-      $("#skipbck").prop("disabled", false) :
-      $("#skipbck").prop("disabled", true);
+    iter < songs.length - 1
+      ? $("#skipfwd").prop("disabled", false)
+      : $("#skipfwd").prop("disabled", true);
+    iter > 0
+      ? $("#skipbck").prop("disabled", false)
+      : $("#skipbck").prop("disabled", true);
   };
 
   const timeFuncs = () => {
@@ -107,10 +133,13 @@ $(document).ready(function () {
         }
       } else {
         if (playtime - 60 * Math.floor(playtime / 60) < 10) {
-          playtime = `${Math.floor(playtime / 60)}:0${ playtime - 60 * Math.floor(playtime / 60)
+          playtime = `${Math.floor(playtime / 60)}:0${
+            playtime - 60 * Math.floor(playtime / 60)
           }`;
         } else {
-          playtime = `${Math.floor(playtime / 60)}:${playtime - 60 * Math.floor(playtime / 60)}`;
+          playtime = `${Math.floor(playtime / 60)}:${
+            playtime - 60 * Math.floor(playtime / 60)
+          }`;
         }
       }
       $("#playtime").text(playtime);
@@ -198,6 +227,13 @@ $(document).ready(function () {
       $(".clear").attr("disabled", true);
     }
   });
+  // $("#search")
+  //   .focus(function () {
+  //     $("#user-genres-choice").fadeOut(500);
+  //   })
+  //   .blur(function () {
+  //     $("#user-genres-choice").fadeIn(500);
+  //   });
   $(".clear").click(function () {
     $("#search").val("");
     $(this).attr("disabled", true);
@@ -207,7 +243,10 @@ $(document).ready(function () {
     $(".user-library").css({
       transform: "translateX(-100vw)",
     });
-    $(".playlist-content .cover img").attr("src","./images/"+$(this).attr('data-image'));
+    $(".playlist-content .cover img").attr(
+      "src",
+      "./images/" + $(this).attr("data-image")
+    );
 
     $(".playlist-content")
       .css({
@@ -243,5 +282,12 @@ $(document).ready(function () {
   $("#save-info").click(function () {
     $(".alert").addClass("alerting");
     setTimeout(closeAlert, 2000);
+  });
+  $(".subcontroller.activatemisc").click(function () {
+    console.log("clicked", $("#misc"));
+    $("#misc").addClass("active");
+  });
+  $("#misc .subcontroller").click(function () {
+    $("#misc").removeClass("active");
   });
 });
