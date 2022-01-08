@@ -108,7 +108,7 @@ $(document).ready(function () {
 
   const loadMetadata = () => {
     jsmediatags.read(
-      `http://${window.location.hostname}:${window.location.port}/songs/${songs[iter]}.mp3`,
+      `https://${window.location.hostname}/songs/${songs[iter]}.mp3`,
       {
         onSuccess: function (tag) {
           let picture = tag.tags.picture;
