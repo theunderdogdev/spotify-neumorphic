@@ -17,7 +17,7 @@ app.get("/songs/:song", (req, res) => {
   res.sendFile(path.resolve(`../weather app/songs/${song}`));
 });
 
-app.get("/", logger, (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.resolve("./index.html"));
   // res.send('<img src="/statics/images/cover.jpeg">');
 });
