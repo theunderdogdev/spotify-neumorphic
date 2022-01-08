@@ -1,2 +1,3 @@
 .DS_Store
-songs/
+/static/songs/
+node_modules/
