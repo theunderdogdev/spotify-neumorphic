@@ -21,4 +21,4 @@ app.get("/", logger, (req, res) => {
   res.sendFile(path.resolve("./index.html"));
   // res.send('<img src="/statics/images/cover.jpeg">');
 });
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
