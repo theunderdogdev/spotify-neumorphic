@@ -9,29 +9,29 @@ export const homeViewTrends = (imgName, contentText) => {
   const template = `
   <ul class="top-trends">
     <li class="top-trend">
-      <img class="rec-img" src="./images/${imgName[0]}" alt="" srcset="">
+      <img class="rec-img" src="/statics/images/${imgName[0]}" alt="" srcset="">
       <p>${contentText[0]}</p>
     </li>
     <li class="top-trend">
-      <img class="rec-img" src="./images/${imgName[1]}" alt="" srcset="">
+      <img class="rec-img" src="/statics/images/${imgName[1]}" alt="" srcset="">
       <p>${contentText[1]}</p>
     </li>
     <li class="top-trend">
-      <img class="rec-img" src="./images/${imgName[2]}" alt="" srcset="">
+      <img class="rec-img" src="/statics/images/${imgName[2]}" alt="" srcset="">
       <p>${contentText[2]}</p>
     </li>
   </ul>
   <ul class="top-trends">
     <li class="top-trend">
-      <img class="rec-img" src="./images/${imgName[3]}" alt="" srcset="">
+      <img class="rec-img" src="/statics/images/${imgName[3]}" alt="" srcset="">
       <p>${contentText[3]}</p>
     </li>
     <li class="top-trend">
-      <img class="rec-img" src="./images/${imgName[4]}" alt="" srcset="">
+      <img class="rec-img" src="/statics/images/${imgName[4]}" alt="" srcset="">
       <p>${contentText[4]}</p>
     </li>
     <li class="top-trend">
-      <img class="rec-img" src="./images/${imgName[5]}" alt="" srcset="">
+      <img class="rec-img" src="/statics/images/${imgName[5]}" alt="" srcset="">
       <p>${contentText[5]}</p>
     </li>
   </ul>
@@ -48,7 +48,7 @@ export const homeViewTrends = (imgName, contentText) => {
 export const homeRecents = (imgName, platlistTitle, platlistSubTitle) => {
   const template = `
       <li class="recent">
-        <div class="album"><img src="./images/${imgName}" alt=""></div>
+        <div class="album"><img src="/statics/images/${imgName}" alt=""></div>
         <div class="recent-info">
             <h4>${platlistTitle}</h4>
             <h5>${platlistSubTitle}</h5>
@@ -66,8 +66,8 @@ export const homeRecents = (imgName, platlistTitle, platlistSubTitle) => {
 export const searchTopGenres = (imgNames) => {
   const template = `
       <li class="genre">
-          <div class="genreinfo"><img src="./images/${imgNames[0]}" alt=""></div>
-          <div class="genreinfo"><img src="./images/${imgNames[1]}" alt=""></div>
+          <div class="genreinfo"><img src="/statics/images/${imgNames[0]}" alt=""></div>
+          <div class="genreinfo"><img src="/statics/images/${imgNames[1]}" alt=""></div>
       </li>
   `;
   return template;
@@ -83,7 +83,7 @@ export const generatePlaylist = (imgName, title, description) => {
   const template = `
   <li class="playlist">
     <div class="wrap-cover">
-        <img src="./images/${imgName}" alt="">
+        <img src="/statics/images/${imgName}" alt="">
     </div>
     <div class="text-info">
         <h3 class="title">${title}</h3>

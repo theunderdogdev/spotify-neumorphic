@@ -10,43 +10,78 @@ let timeOfDay;
 const generateRandomImageIndex = () => {
   return Math.floor(Math.random() * 6);
 };
-$('.greet').text()
+$(".greet").text();
 $(document).ready(function () {
-
-  setTimeout(()=>{
-    $('#loading').css({transform: "translateY(-100vh)"}).delay(2000).queue((next)=>{
-      $("#loading").remove();
-      next();
-    });
-  },5000)
-  console.log(dateTime.getHours())
-  if(dateTime.getHours() > 5 &&  dateTime.getHours() < 12){
+  setTimeout(() => {
+    $("#loading")
+      .css({ transform: "translateY(-100vh)" })
+      .delay(2000)
+      .queue((next) => {
+        $("#loading").remove();
+        next();
+      });
+  }, 5000);
+  console.log(dateTime.getHours());
+  if (dateTime.getHours() > 5 && dateTime.getHours() < 12) {
     timeOfDay = "Morning";
-  }
-  else if( dateTime.getHours() >= 12 && dateTime.getHours() <= 17){
+  } else if (dateTime.getHours() >= 12 && dateTime.getHours() <= 17) {
     timeOfDay = "Afternoon";
-  }
-  else if (dateTime.getHours() > 17 && dateTime.getHours() <= 20){
+  } else if (dateTime.getHours() > 17 && dateTime.getHours() <= 20) {
     timeOfDay = "Evening";
-  }
-  else{
+  } else {
     timeOfDay = "Night";
   }
-  $('.greet').text("Good "+ timeOfDay);
+  $(".greet").text("Good " + timeOfDay);
 
-  const songs = [ "alone pt 2", "crowd control", "fake a smile", "unity", "warriyo mortals", ];
+  const songs = [
+    "alone%20pt%202",
+    "crowd%20control",
+    "fake%20a%20smile",
+    "unity",
+    "warriyo%20mortals",
+  ];
   /* UI Templates generation */
-  const images = [ "cover.jpeg", "cover2.jpeg", "cover3.jpeg", "cover4.jpeg", "cover5.jpeg", "cover6.jpeg", "cover7.jpeg", ];
-  $(".tiles").append( homeViewTrends(images, [ "Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum", "Lorem Ipsum", ]) );
+  const images = [
+    "cover.jpeg",
+    "cover2.jpeg",
+    "cover3.jpeg",
+    "cover4.jpeg",
+    "cover5.jpeg",
+    "cover6.jpeg",
+    "cover7.jpeg",
+  ];
+  $(".tiles").append(
+    homeViewTrends(images, [
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+    ])
+  );
   for (let i = 0; i < 10; i++) {
     $("ul.recents").append(
-      homeRecents( images[Math.floor(Math.random() * 6)], "Different World", "Lorem Ipsum Dol" )
+      homeRecents(
+        images[Math.floor(Math.random() * 6)],
+        "Different World",
+        "Lorem Ipsum Dol"
+      )
     );
   }
-  $("ul#top-genres").append(
-      searchTopGenres([ images[generateRandomImageIndex()], images[generateRandomImageIndex()], ])
-    ).append(
-      searchTopGenres([ images[generateRandomImageIndex()], images[generateRandomImageIndex()], ]));
+  $("ul#top-genres")
+    .append(
+      searchTopGenres([
+        images[generateRandomImageIndex()],
+        images[generateRandomImageIndex()],
+      ])
+    )
+    .append(
+      searchTopGenres([
+        images[generateRandomImageIndex()],
+        images[generateRandomImageIndex()],
+      ])
+    );
   for (let i = 0; i < 10; i++) {
     $("ul#all-genres").append(
       searchTopGenres([
@@ -72,24 +107,27 @@ $(document).ready(function () {
   /* Music Meta Data Part */
 
   const loadMetadata = () => {
-    jsmediatags.read(`http://127.0.0.1:5500/songs/${songs[iter]}.mp3`, {
-      onSuccess: function (tag) {
-        let picture = tag.tags.picture;
-        var base64String = "";
-        for (var i = 0; i < picture.data.length; i++) {
-          base64String += String.fromCharCode(picture.data[i]);
-        }
-        var imageUri =
-          "data:" + picture.format + ";base64," + window.btoa(base64String);
-        $(".cover-art").attr("src", imageUri);
-        $("#np-title").text(tag.tags.title);
-        $("#np-artist").text(tag.tags.artist);
-        console.log(tag.tags.album, tag.tags.artist, tag);
-      },
-      onError: function (error) {
-        console.log(error);
-      },
-    });
+    jsmediatags.read(
+      `http://${window.location.hostname}:${window.location.port}/songs/${songs[iter]}.mp3`,
+      {
+        onSuccess: function (tag) {
+          let picture = tag.tags.picture;
+          var base64String = "";
+          for (var i = 0; i < picture.data.length; i++) {
+            base64String += String.fromCharCode(picture.data[i]);
+          }
+          var imageUri =
+            "data:" + picture.format + ";base64," + window.btoa(base64String);
+          $(".cover-art").attr("src", imageUri);
+          $("#np-title").text(tag.tags.title);
+          $("#np-artist").text(tag.tags.artist);
+          console.log(tag.tags.album, tag.tags.artist, tag);
+        },
+        onError: function (error) {
+          console.log(error);
+        },
+      }
+    );
   };
   /* Music Meta Data Part */
 
@@ -136,7 +174,7 @@ $(document).ready(function () {
     console.log(player.duration, player);
   };
   let iter = 0;
-  let player = new Audio(`./songs/${songs[iter]}.mp3`);
+  let player = new Audio(`/songs/${songs[iter]}.mp3`);
 
   $(".nav-item").click(function () {
     $(".nav-item.active").removeClass("active");
@@ -171,24 +209,34 @@ $(document).ready(function () {
   });
 
   $("#skipfwd").click(function (e) {
-      e.stopPropagation();
-      player.pause();
-      iter += 1;
-      guardFlow();
-      player.src = `./songs/${songs[iter]}.mp3`;
-      player.load();
+    e.stopPropagation();
+    player.pause();
+    iter += 1;
+    guardFlow();
+    player.src = `/songs/${songs[iter]}.mp3`;
+    player.load();
 
-      setTimeout(() => { player.play(); $(".play").removeClass("paused"); timeFuncs(); loadMetadata(); }, 750);
+    setTimeout(() => {
+      player.play();
+      $(".play").removeClass("paused");
+      timeFuncs();
+      loadMetadata();
+    }, 750);
   });
   $("#skipbck").click(function (e) {
-      e.stopPropagation();
-      player.pause();
-      iter -= 1;
-      guardFlow();
-      player.src = `./songs/${songs[iter]}.mp3`;
-      player.load();
+    e.stopPropagation();
+    player.pause();
+    iter -= 1;
+    guardFlow();
+    player.src = `/songs/${songs[iter]}.mp3`;
+    player.load();
 
-      setTimeout(() => { player.play(); $(".play").removeClass("paused"); timeFuncs(); loadMetadata(); }, 750);
+    setTimeout(() => {
+      player.play();
+      $(".play").removeClass("paused");
+      timeFuncs();
+      loadMetadata();
+    }, 750);
   });
 
   $("#like").click(function (e) {
@@ -213,44 +261,51 @@ $(document).ready(function () {
   //   .blur(function () {
   //     $("#user-genres-choice").fadeIn(500);
   //   });
-    $(".clear").click(function () {
-        $("#search").val("");
-        $(this).attr("disabled", true);
-    });
+  $(".clear").click(function () {
+    $("#search").val("");
+    $(this).attr("disabled", true);
+  });
 
-    $(".data-assets .controller").click(function () {
-        $(".user-library").css({transform: "translateX(-100vw)"});
-        $(".playlist-content .cover img").attr( "src", "./images/" + $(this).attr("data-image") );
-        $(".playlist-content") .css({ transform: "translateX(0px)", }) .addClass("isactive");
-        $(".subcontroller.back-btn");
-    });
+  $(".data-assets .controller").click(function () {
+    $(".user-library").css({ transform: "translateX(-100vw)" });
+    $(".playlist-content .cover img").attr(
+      "src",
+      "./images/" + $(this).attr("data-image")
+    );
+    $(".playlist-content")
+      .css({ transform: "translateX(0px)" })
+      .addClass("isactive");
+    $(".subcontroller.back-btn");
+  });
   $(".subcontroller.back-btn").click(function () {
     $(".subcontroller.back-btn");
-    $(".user-library").css({ transform: "translateX(0px)", });
-    $(".playlist-content") .css({ transform: "translateX(100vw)", }) .removeClass("isactive");
+    $(".user-library").css({ transform: "translateX(0px)" });
+    $(".playlist-content")
+      .css({ transform: "translateX(100vw)" })
+      .removeClass("isactive");
   });
 
   // Profile View
   $("#edit-info").click(function () {
     console.log("hi");
-    if($("#edit-info.active").length == 0) {
-        $(this).addClass("active");
-        $(".profile.view.viewing input").attr("disabled", false);
+    if ($("#edit-info.active").length == 0) {
+      $(this).addClass("active");
+      $(".profile.view.viewing input").attr("disabled", false);
     } else {
-        $(this).removeClass("active");
-        $(".profile.view.viewing input").attr("disabled", true);
+      $(this).removeClass("active");
+      $(".profile.view.viewing input").attr("disabled", true);
     }
   });
 
-    $("#save-info").click(function () {
-       $(".alert").addClass("alerting");
-        setTimeout(closeAlert, 2000);
-    });
+  $("#save-info").click(function () {
+    $(".alert").addClass("alerting");
+    setTimeout(closeAlert, 2000);
+  });
 
-    // $(".activatemisc").click(function () {
-    //   $("#misc").addClass("active");
-    // });
-    // $("#misc .subcontroller").click(function () {
-    //   $("#misc").removeClass("active");
-    // });
+  // $(".activatemisc").click(function () {
+  //   $("#misc").addClass("active");
+  // });
+  // $("#misc .subcontroller").click(function () {
+  //   $("#misc").removeClass("active");
+  // });
 });

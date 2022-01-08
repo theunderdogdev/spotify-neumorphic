@@ -10,16 +10,15 @@ const logger = (req, res, next) => {
   next();
 };
 
-app.get("/images/:img", (req, res) => {
-  const { img } = req.params;
-  res.sendFile(path.resolve(`../weather app/images/${img}`));
-});
+app.use("/statics", express.static(path.resolve("./static")));
+
 app.get("/songs/:song", (req, res) => {
   const { song } = req.params;
   res.sendFile(path.resolve(`../weather app/songs/${song}`));
 });
 
 app.get("/", logger, (req, res) => {
-  res.sendFile(path.resolve("../weather app/index.html"));
+  res.sendFile(path.resolve("./index.html"));
+  // res.send('<img src="/statics/images/cover.jpeg">');
 });
 app.listen(8080);
